@@ -1,0 +1,57 @@
+<%= form_for(@camera_view) do |f| %>
+  <% if @camera_view.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@camera_view.errors.count, "error") %> prohibited this camera_view from being saved:</h2>
+
+      <ul>
+      <% @camera_view.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :cdot_view_id %><br>
+    <%= f.number_field :cdot_view_id %>
+  </div>
+  <div class="field">
+    <%= f.label :direction %><br>
+    <%= f.number_field :direction %>
+  </div>
+  <div class="field">
+    <%= f.label :image_location %><br>
+    <%= f.text_field :image_location %>
+  </div>
+  <div class="field">
+    <%= f.label :display_order %><br>
+    <%= f.number_field :display_order %>
+  </div>
+  <div class="field">
+    <%= f.label :road_name %><br>
+    <%= f.text_field :road_name %>
+  </div>
+  <div class="field">
+    <%= f.label :road_id %><br>
+    <%= f.number_field :road_id %>
+  </div>
+  <div class="field">
+    <%= f.label :last_updated_at %><br>
+    <%= f.datetime_select :last_updated_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  source: MyString
+  cdot_view_id: 1
+  direction: 1
+  image_location: MyString
+  display_order: 1
+  road_name: MyString
+  road_id: 1
+  last_updated_at: 2018-03-29 16:14:12
+
+two:
+  name: MyString
+  description: MyString
+  source: MyString
+  cdot_view_id: 1
+  direction: 1
+  image_location: MyString
+  display_order: 1
+  road_name: MyString
+  road_id: 1
+  last_updated_at: 2018-03-29 16:14:12

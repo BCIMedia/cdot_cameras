@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329213210) do
+ActiveRecord::Schema.define(version: 20180329221412) do
+
+  create_table "cdot_camera_camera_views", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "description",     limit: 255
+    t.string   "source",          limit: 255
+    t.integer  "cdot_view_id",    limit: 4
+    t.integer  "direction",       limit: 4
+    t.string   "image_location",  limit: 255
+    t.integer  "display_order",   limit: 4
+    t.string   "road_name",       limit: 255
+    t.integer  "road_id",         limit: 4
+    t.datetime "last_updated_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "cdot_camera_cameras", force: :cascade do |t|
     t.string   "name",            limit: 255

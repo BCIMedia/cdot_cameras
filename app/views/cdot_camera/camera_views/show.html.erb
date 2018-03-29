@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @camera_view.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @camera_view.description %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @camera_view.source %>
+</p>
+
+<p>
+  <strong>Cdot view:</strong>
+  <%= @camera_view.cdot_view_id %>
+</p>
+
+<p>
+  <strong>Direction:</strong>
+  <%= @camera_view.direction %>
+</p>
+
+<p>
+  <strong>Image location:</strong>
+  <%= @camera_view.image_location %>
+</p>
+
+<p>
+  <strong>Display order:</strong>
+  <%= @camera_view.display_order %>
+</p>
+
+<p>
+  <strong>Road name:</strong>
+  <%= @camera_view.road_name %>
+</p>
+
+<p>
+  <strong>Road:</strong>
+  <%= @camera_view.road_id %>
+</p>
+
+<p>
+  <strong>Last updated at:</strong>
+  <%= @camera_view.last_updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_camera_view_path(@camera_view) %> |
+<%= link_to 'Back', camera_views_path %>

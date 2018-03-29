@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "4.2.8"
   s.add_dependency "mysql2", "0.4.10"
+  s.add_dependency "figaro", "1.1.1"
 
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "factory_bot_rails"
