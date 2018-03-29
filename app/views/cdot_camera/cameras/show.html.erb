@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @camera.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @camera.description %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @camera.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @camera.longitude %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @camera.source %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @camera.icon %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @camera.status %>
+</p>
+
+<p>
+  <strong>Weather station:</strong>
+  <%= @camera.weather_station %>
+</p>
+
+<p>
+  <strong>Cdot camera:</strong>
+  <%= @camera.cdot_camera_id %>
+</p>
+
+<%= link_to 'Edit', edit_camera_path(@camera) %> |
+<%= link_to 'Back', cameras_path %>

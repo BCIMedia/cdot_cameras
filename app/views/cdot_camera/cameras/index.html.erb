@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cameras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Source</th>
+      <th>Icon</th>
+      <th>Status</th>
+      <th>Weather station</th>
+      <th>Cdot camera</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cameras.each do |camera| %>
+      <tr>
+        <td><%= camera.name %></td>
+        <td><%= camera.description %></td>
+        <td><%= camera.latitude %></td>
+        <td><%= camera.longitude %></td>
+        <td><%= camera.source %></td>
+        <td><%= camera.icon %></td>
+        <td><%= camera.status %></td>
+        <td><%= camera.weather_station %></td>
+        <td><%= camera.cdot_camera_id %></td>
+        <td><%= link_to 'Show', camera %></td>
+        <td><%= link_to 'Edit', edit_camera_path(camera) %></td>
+        <td><%= link_to 'Destroy', camera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Camera', new_camera_path %>
