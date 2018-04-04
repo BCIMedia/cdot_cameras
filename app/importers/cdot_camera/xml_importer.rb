@@ -9,7 +9,11 @@ module CdotCamera
     end
 
     def cdot_xml
-      Nokogiri::XML(open(ENV["camera_xml_url"], http_basic_authentication: [ENV["cdot_user_name"], ENV["cdot_password"]]))
+      binding.pry
+      conn = Faraday.new(url: CdotCamera.configuration.xml_url)
+      conn.basic_auth(CdotCamera.configuration.xml_user, CdotCamera.configuration.xml_pass)
+      conn.get
+
     end
 
     def xml_cameras

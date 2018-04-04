@@ -1,11 +1,10 @@
 # CdotCamera
 Short description and motivation.
+http://i.cotrip.org/xmlHelp.html#camerasxml
 
 ## Usage
-How to use my plugin.
 
 ## Installation
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'cdot_camera'
@@ -22,7 +21,6 @@ $ gem install cdot_camera
 ```
 
 ## Contributing
-Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
