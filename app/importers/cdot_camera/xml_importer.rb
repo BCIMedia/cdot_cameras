@@ -34,10 +34,9 @@ module CdotCamera
                         longitude:       cam_long,
                         source:          xml_cam.xpath("camera:Source").text,
                         icon:            xml_cam.xpath("camera:Icon").text,
-                        status:          xml_cam.xpath("camera:Enabled").text == "enabled" ? true : false,
-                        weather_station: xml_cam.xpath("camera:IsWeatherStation").text == "false" ? false : true,
+                        status:          xml_cam.xpath("camera:Status").text == "enabled" ? true : false,
+                        weather_station: xml_cam.xpath("camera:IsWeatherStation").text == "true" ? true : false,
                        )
-          binding.pry
           xml_cam.xpath("camera:CameraView").each do |camera_view|
             cdot_view_id = camera_view.xpath("camera:CameraViewId").text
             cameraView = CdotCamera::CameraView.find_or_create_by(cdot_view_id: cdot_view_id, cdot_camera_id: cdot_id)
@@ -52,7 +51,6 @@ module CdotCamera
                               mile_marker:     camera_view.xpath("camera:MileMarker").text,
                               last_updated_at: camera_view.xpath("camera:LastUpdatedDate").text)
           end
-          binding.pry
         else
           # Camera too far!
         end
