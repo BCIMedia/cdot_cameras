@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'pathname'
 
+# CdotCamera::XmlImporter.new.import
 module CdotCamera
   class XmlImporter
     attr_reader :libraries
@@ -9,24 +10,53 @@ module CdotCamera
     end
 
     def cdot_xml
-      binding.pry
       conn = Faraday.new(url: CdotCamera.configuration.xml_url)
       conn.basic_auth(CdotCamera.configuration.xml_user, CdotCamera.configuration.xml_pass)
       conn.get
-
     end
 
     def xml_cameras
-      cdot_xml.xpath("//camera:Camera")
+      Nokogiri::XML(cdot_xml.body).xpath("//camera:Camera")
     end
 
     def import
       xml_cameras.each do |xml_cam|
-        cdot_id  = normalize(xml_cam.xpath("camera:CameraId").inner_text)
-        camera = Camera.find_or_create_by(id: cdot_id)
-        cam_name = normalize(xml_cam.xpath("camera:Name").inner_text)
+        name     = xml_cam.xpath("camera:Name").text
+        cam_lat  = xml_cam.xpath("camera:Location").xpath("global:Latitude").text.to_f
+        cam_long = xml_cam.xpath("camera:Location").xpath("global:Longitude").text.to_f
+        puts name
+        if distance([cam_lat, cam_long], [CdotCamera.configuration.home_lat, CdotCamera.configuration.home_long])
+          cdot_id  = xml_cam.xpath("camera:CameraId").text.to_i
+          camera = CdotCamera::Camera.find_or_create_by(cdot_camera_id: cdot_id)
+          camera.update(name:            xml_cam.xpath("camera:Name").text,
+                        description:     xml_cam.xpath("camera:Description").text,
+                        latitude:        cam_lat,
+                        longitude:       cam_long,
+                        source:          xml_cam.xpath("camera:Source").text,
+                        icon:            xml_cam.xpath("camera:Icon").text,
+                        status:          xml_cam.xpath("camera:Enabled").text == "enabled" ? true : false,
+                        weather_station: xml_cam.xpath("camera:IsWeatherStation").text == "false" ? false : true,
+                       )
+          binding.pry
+          xml_cam.xpath("camera:CameraView").each do |camera_view|
+            cdot_view_id = camera_view.xpath("camera:CameraViewId").text
+            cameraView = CdotCamera::CameraView.find_or_create_by(cdot_view_id: cdot_view_id, cdot_camera_id: cdot_id)
+            cameraView.update(name:            camera_view.xpath("camera:CameraName").text,
+                              description:     camera_view.xpath("camera:ViewDescription").text,
+                              source:          camera_view.xpath("camera:ImageSource").text,
+                              direction:       camera_view.xpath("camera:Direction").text,
+                              image_location:  camera_view.xpath("camera:ImageLocation").text,
+                              display_order:   camera_view.xpath("camera:DisplayOrder").text,
+                              road_name:       camera_view.xpath("camera:RoadName").text,
+                              road_id:         camera_view.xpath("camera:RoadId").text,
+                              mile_marker:     camera_view.xpath("camera:MileMarker").text,
+                              last_updated_at: camera_view.xpath("camera:LastUpdatedDate").text)
+          end
+          binding.pry
+        else
+          # Camera too far!
+        end
 
-        binding.pry
         # check_if_name_includes_lib_title(cam_name, xml_cam)
       end
       # process_images
@@ -83,6 +113,25 @@ module CdotCamera
 
     def normalize(text)
       text.to_s.strip.gsub(/[^A-Za-z0-9-\s]+/, "").gsub(/[_\s]+/, '-').downcase
+    end
+
+    def distance loc1, loc2
+      rad_per_deg = Math::PI/180  # PI / 180
+      rkm = 6371                  # Earth radius in kilometers
+      rm = rkm * 1000             # Radius in meters
+
+      dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
+      dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
+
+      lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
+      lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
+
+      a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
+      c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+
+      d = rm * c # Delta in meters
+      puts "distance: #{d}"
+      d <= CdotCamera.configuration.max_distance
     end
   end
 end

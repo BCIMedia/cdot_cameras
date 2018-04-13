@@ -4,12 +4,14 @@ class CreateCdotCameraCameraViews < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :source
-      t.integer :cdot_view_id
-      t.integer :direction
+      t.string :direction
       t.string :image_location
-      t.integer :display_order
       t.string :road_name
+      t.integer :cdot_camera_id
+      t.integer :cdot_view_id
+      t.integer :display_order
       t.integer :road_id
+      t.integer :mile_marker
       t.datetime :last_updated_at
 
       t.timestamps null: false

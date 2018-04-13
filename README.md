@@ -14,6 +14,8 @@ And then execute:
 ```bash
 $ bundle
 ```
+Add all the Gem migration files with:
+  bundle exec rake cdot_camera_engine:install:migrations
 
 Or install it yourself as:
 ```bash
