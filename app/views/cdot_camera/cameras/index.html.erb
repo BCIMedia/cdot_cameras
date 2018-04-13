@@ -31,7 +31,7 @@
         <td><%= camera.weather_station %></td>
         <td><%= camera.cdot_camera_id %></td>
         <td><%= link_to 'Show', camera %></td>
-        <td><%= link_to 'Edit', edit_camera_path(camera) %></td>
+        <td><%= link_to 'Edit', edit_cdot_camera_camera_path(camera) %></td>
         <td><%= link_to 'Destroy', camera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Camera', new_camera_path %>
+<%= link_to 'New Camera', new_cdot_camera_camera_path %>
