@@ -1,8 +1,17 @@
-<div class="row">
-  <div class="small-12 columns">
-    <% @camera.camera_views.each do |view| %>
-      <%= image_tag "http://i.cotrip.org/#{view.image_location}", width: 400 %>
-    <% end %>
+<div class="body-bg-gradient">
+  <div class="row">
+    <div class="columns small-12">
+      <div class="columnist-container">
+        <div class="section-label columnist-header">
+          <h3><%= @camera.name %></h3>
+        </div>
+      <div class="columnist-cards">
+        <% @camera.camera_views.each do |view| %>
+          <div class="columnist-card">
+            <%= image_tag "http://i.cotrip.org/#{view.image_location}", width: 400 %>
+            <%= view.description %>
+          </div>
+        <% end %>
+    </div>
   </div>
 </div>
-
