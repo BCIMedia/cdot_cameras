@@ -1,13 +1,13 @@
 <div class="body-bg-gradient">
   <div class="row">
     <div class="columns small-12">
-      <div class="columnist-container">
-        <div class="section-label columnist-header">
+      <div class="cdot-container">
+        <div class="section-label cdot-header">
           <h3><%= @camera.name %></h3>
         </div>
-      <div class="columnist-cards">
+      <div class="cdot-cards">
         <% @camera.camera_views.each do |view| %>
-          <div class="columnist-card">
+          <div class="cdot-card">
             <%= image_tag "http://i.cotrip.org/#{view.image_location}", width: 400 %>
             <%= view.description %>
           </div>

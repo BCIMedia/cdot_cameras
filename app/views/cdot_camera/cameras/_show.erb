@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="columns small-12">
+    <div class="cdot-container" id="cdot-camera-<%= camera.id %>">
+      <div class="section-label cdot-header">
+        <h3><%= camera.name %></h3>
+      </div>
+      <div class="cdot-cards">
+        <% camera.camera_views.each do |view| %>
+          <div class="cdot-card">
+            <%= image_tag "http://i.cotrip.org/#{view.image_location}" %>
+            <%= view.description %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
