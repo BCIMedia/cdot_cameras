@@ -1,0 +1,9 @@
+<% @cameras.each do |camera| %>
+  <div class="row camera-list-for-add-box">
+    <div class="columns">
+      <div class="camera-name">
+        <%= link_to camera.name.html_safe, "#", class: "add-camera", data: {id: camera.id} %>
+      </div>
+    </div>
+  </div>
+<% end %>
