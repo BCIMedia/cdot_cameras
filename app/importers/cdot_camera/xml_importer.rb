@@ -39,8 +39,9 @@ module CdotCamera
                        )
           xml_cam.xpath("camera:CameraView").each do |camera_view|
             cdot_view_id = camera_view.xpath("camera:CameraViewId").text
-            cameraView = CdotCamera::CameraView.find_or_create_by(cdot_view_id: cdot_view_id, cdot_camera_id: cdot_id)
-            cameraView.update(name:            camera_view.xpath("camera:CameraName").text,
+            cameraView = CdotCamera::CameraView.find_or_create_by(cdot_view_id: cdot_view_id, camera_id: camera.id)
+            cameraView.update(cdot_camera_id:  cdot_id,
+                              name:            camera_view.xpath("camera:CameraName").text,
                               description:     camera_view.xpath("camera:ViewDescription").text,
                               source:          camera_view.xpath("camera:ImageSource").text,
                               direction:       camera_view.xpath("camera:Direction").text,
