@@ -1,7 +1,5 @@
-# require_dependency "cdot_camera/application_controller"
-
 module CdotCamera
-  class CameraViewsController < ::ApplicationController
+  class CameraViewsController < ::AdminController
     before_action :set_camera_view, only: [:show, :edit, :update, :destroy]
 
     # GET /camera_views
