@@ -7,7 +7,7 @@
       <div class="cdot-cards">
         <% camera.camera_views.each do |view| %>
           <div class="cdot-card">
-            <%= image_tag "http://i.cotrip.org/#{view.image_location}" %>
+            <%= image_tag view.s3_image.url %>
             <%= view.description %>
             <span><%= view.source %></span>
           </div>

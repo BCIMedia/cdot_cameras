@@ -131,5 +131,13 @@ module CdotCamera
       puts "distance: #{d}"
       d <= CdotCamera.configuration.max_distance
     end
+
+    def upload_to_s3
+      CameraView.all.each do |cv|
+        cv.imagle_location
+        cv.update(s3_image: open("http://i.cotrip.org/"+cv.image_location))
+      end
+
+    end
   end
 end
