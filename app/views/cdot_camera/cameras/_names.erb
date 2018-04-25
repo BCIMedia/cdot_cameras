@@ -2,7 +2,8 @@
   <div class="row camera-list-for-add-box">
     <div class="columns">
       <div class="camera-name">
-        <%= link_to camera.name.html_safe, "#", class: "add-camera", id: "cdot-name-#{camera.id}", data: {id: camera.id} %>
+        <% camera_name = camera.name.gsub(/(#{search})/i, '<mark class="highlight">\1</mark>') %>
+        <%= link_to camera_name.html_safe, "#", class: "add-camera", id: "cdot-name-#{camera.id}", data: {id: camera.id} %>
       </div>
     </div>
   </div>
