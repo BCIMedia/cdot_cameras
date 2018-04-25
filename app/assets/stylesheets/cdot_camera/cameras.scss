@@ -2,111 +2,6 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-// CDOT MAGIC
-$color: #012345;
-$black: #0a0a0a;
-$dh_black: #000000;
-$dark_gray: #8a8a8a;
-$dh_dk_gray: #333333;
-$medium_gray: #cacaca;
-$dh_gray: #666666;
-$light_gray: #e6e6e6;
-$dh_line_gray: #d7d7d7;
-$dh_red: #990000;
-$white: #fefefe;
-$dh_white: #ffffff;
-$journal_blue: #87a3cb;
-$prt_background: #829d7e;
-
-
-@mixin cdotName {
-  font-family: "proxima-nova",sans-serif;
-  color: #999;
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-top: .25rem;
-  line-height: 1.15em;
-
-  a {
-    color: #999;
-
-    &:active, &:focus, &:visited {
-      color: #999;
-    }
-
-    &:hover {
-      color: $dh_gray;
-      text-decoration: underline;
-    }
-  }
-}
-
-@mixin cameraName {
-
-  h3 {
-    font-family: "grad",serif;
-    color: $dh_black;
-    font-weight: 800;
-    margin-top: .25rem;
-    line-height: 1.15em;
-    hyphens: none;
-
-    a {
-      color: $dh_black;
-
-      &:active, &:focus, &:visited {
-        color: $dh_black;
-      }
-
-      &:hover {
-        color: $dh_gray;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-@mixin header($font-size: 2.25rem, $color: #000, $hover: $dh_gray) {
-  font-family: "proxima-nova",sans-serif;
-  font-size: $font-size;
-  color: $color;
-  font-weight: 700;
-  line-height: 50px;
-  display: inline-block;
-  vertical-align: text-top;
-  margin-bottom: 0;
-
-  a {
-    color: $color;
-
-    &:active, &:focus, &:visited {
-      color: $color;
-      text-decoration: underline;
-    }
-
-    &:hover {
-      color: $hover;
-      text-decoration: underline;
-    }
-  }
-
-  &.alt-page-header {
-    font-family: "grad",serif;
-  }
-}
-.cdot-container {
-  background-color: #fff;
-  border: 1px solid $dh_line_gray;
-  padding: 1rem;
-  padding-top: .5rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-  width: 100%;
-}
-.cdot-header {
-  text-align: center;
-  width: 100%;
-}
 .cdot-cards {
   width: 100%;
   display: flex;
@@ -119,7 +14,7 @@ $prt_background: #829d7e;
   .cdot-card {
     background-color: #fff;
     // padding: 1rem;
-    border: 1px solid $dh_line_gray;
+    border: 1px solid #333333;
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -128,72 +23,5 @@ $prt_background: #829d7e;
     flex-direction: column;
     flex: 1 0 auto;
     width: 30%;
-
-    &.last {
-      max-width: 45%;
-    }
-
-    &.journal-cdot-card {
-      width: 90%;
-    }
-
-    @media screen and (max-width: 39.9375em) {
-      width: 90%;
-      margin: .65rem auto;
-    }
-
-    .cdot-image {
-      align-items: center;
-
-      img {
-        min-height: 100%;
-        min-width: 100%;
-      }
-    }
-
-    .cdot-name {
-      @include cdotName;
-    }
-
-    .cdot-camera {
-      @include cameraName;
-
-      @media screen and (max-width: 64rem) {
-        h3 {
-          font-size: 1.5rem;
-        }
-
-        h6 {
-          font-size: 1.15rem !important;
-        }
-      }
-
-      h3 {
-        @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-          font-size: 1.5rem;
-        }
-      }
-
-      h6 {
-        font-family: "grad",serif;
-        color: $dh_black;
-        font-size: 1.25rem;
-        font-weight: 800;
-        margin-top: .25rem;
-
-        a {
-          color: $dh_black;
-
-          &:active, &:focus, &:visited {
-            color: $dh_black;
-          }
-
-          &:hover {
-            color: $dh_gray;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
   }
 }
