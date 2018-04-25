@@ -36,7 +36,7 @@ module CdotCamera
       if @camera.update(camera_params)
         redirect_to @camera, notice: 'Camera was successfully updated.'
       else
-        render :edit
+        render :index
       end
     end
 

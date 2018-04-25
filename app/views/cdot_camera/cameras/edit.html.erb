@@ -8,7 +8,15 @@
   </div>
 
   <div class="columns small-12">
-    <%= link_to 'Show', @camera %> |
-    <%= link_to 'Back', cdot_camera_cameras_path %>
+    <div class="universal-flex-container universal-flex-natural admin-button-container">
+      <%= link_to cdot_camera_cameras_path, class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
+        <i class="fa fa-arrow-left"></i> Back
+      <% end %>
+    </div>
   </div>
+  <br>
+  <div class="columns small-12">
+  <%= render partial: "cdot_camera/cameras/show", locals: {camera: @camera} %>
+  </div>
+
 </div>
