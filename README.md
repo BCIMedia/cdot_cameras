@@ -22,6 +22,8 @@ Or install it yourself as:
 $ gem install cdot_camera
 ```
 
+In console: `CdotCamera::XmlImporter.new.import`
+
 ## Contributing
 
 ## License

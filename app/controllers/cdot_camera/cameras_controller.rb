@@ -54,7 +54,7 @@ module CdotCamera
 
       # Only allow a trusted parameter "white list" through.
       def camera_params
-        params.require(:camera).permit(:name, :description, :latitude, :longitude, :source, :icon, :status, :weather_station, :cdot_camera_id)
+        params.require(:cdot_camera_camera).permit(:name, :description, :latitude, :longitude, :source, :icon, :status, :weather_station, :cdot_camera_id)
       end
   end
 end
