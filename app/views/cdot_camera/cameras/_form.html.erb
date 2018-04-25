@@ -1,53 +1,48 @@
-<%= form_for(@camera) do |f| %>
-  <% if @camera.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@camera.errors.count, "error") %> prohibited this camera from being saved:</h2>
+<%= simple_form_for(@camera) do |f| %>
+  <div class="row">
+    <% if @camera.errors.any? %>
+      <div class="small-12 columns">
+        <div id="error_explanation">
+          <h2><%= pluralize(@camera.errors.count, "error") %> prohibited this camera from being saved:</h2>
 
-      <ul>
-      <% @camera.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @camera.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="small-12 medium-6 large-4 columns">
+      <%= f.input :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
-  </div>
-  <div class="field">
-    <%= f.label :icon %><br>
-    <%= f.text_field :icon %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :weather_station %><br>
-    <%= f.check_box :weather_station %>
-  </div>
-  <div class="field">
-    <%= f.label :cdot_camera_id %><br>
-    <%= f.number_field :cdot_camera_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="small-12 medium-6 large-8 columns">
+      <%= f.input :description %>
+    </div>
+    <div class="small-12 columns">
+      <%= f.input :source %>
+    </div>
+    <div class="small-12 medium-6 columns">
+      <%= f.input :latitude, disabled: true %>
+    </div>
+    <div class="small-12 medium-6 columns">
+      <%= f.input :longitude, disabled: true %>
+    </div>
+    <div class="small-12 columns">
+      <%= f.input :icon, disabled: true %>
+    </div>
+    <div class="small-12 medium-4 columns">
+      <%= f.input :status, disabled: true %>
+    </div>
+    <div class="small-12 medium-4 columns">
+      <%= f.input  :weather_station, disabled: true %>
+    </div>
+    <div class="small-12 medium-4 columns">
+      <%= f.input :cdot_camera_id, disabled: true %>
+    </div>
+    <div class="small-12 columns">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
