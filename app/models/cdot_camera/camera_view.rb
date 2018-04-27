@@ -10,7 +10,7 @@ module CdotCamera
     end
 
     def s3_image_fetch_url
-      if (!s3_image.exists? || Time.now.to_i - s3_image_updated_at.to_i > 900)
+      if (!s3_image.exists? || Time.now.to_i - s3_image_updated_at.to_i > CdotCamera.configuration.image_cache_time)
         update_s3
       end
       s3_image.url
