@@ -8,6 +8,13 @@ module CdotCamera
     def update_s3
       update(s3_image: open("http://i.cotrip.org/"+image_location))
     end
+
+    def s3_image_fetch_url
+      if (!s3_image.exists? || Time.now.to_i - s3_image_updated_at.to_i > 900)
+        update_s3
+      end
+      s3_image.url
+    end
   end
 
 end

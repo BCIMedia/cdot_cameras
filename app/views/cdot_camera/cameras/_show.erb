@@ -5,7 +5,7 @@
       <div class="cdot-cards">
         <% camera.camera_views.each do |view| %>
           <div class="cdot-card">
-            <%= image_tag view.s3_image.url %>
+            <%= image_tag view.s3_image_fetch_url %>
             <%= view.description %>
             <span><%= view.source %></span>
           </div>
