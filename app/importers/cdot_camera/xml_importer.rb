@@ -10,7 +10,7 @@ module CdotCamera
     end
 
     def cdot_xml
-      conn = Faraday.new(url: CdotCamera.configuration.xml_url)
+      conn = Faraday.new(url: CdotCamera.configuration.xml_url, request: {timeout: 6})
       conn.basic_auth(CdotCamera.configuration.xml_user, CdotCamera.configuration.xml_pass)
       conn.get
     end
