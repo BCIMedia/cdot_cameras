@@ -6,7 +6,13 @@ module CdotCamera
 
     belongs_to :camera
     def update_s3
-      update(s3_image: open("http://i.cotrip.org/"+image_location))
+      path = "http://i.cotrip.org/" + image_location
+      begin
+        update(s3_image: open(path, {read_timeout: 3}))
+      rescue
+        cdot_logger = Logger.new(Rails.root.join("log", "#{Rails.env}_cdot.log"), 10, 30 * 1024 * 1024)
+        cdot_logger.info("Camera: #{camera_id} - View: #{id} - #{path} - #{$!.message}")
+      end
     end
 
     def s3_image_fetch_url
