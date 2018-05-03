@@ -6,6 +6,9 @@
         <% camera.camera_views.each do |view| %>
           <div class="cdot-card">
             <%= image_tag view.s3_image_fetch_url %>
+            <% if defined? view.s3_image_updated_at.to_ago %>
+              <span class="cdot-view-age">Updated: <%= view.s3_image_updated_at.to_ago %></span>
+            <% end %>
             <%= view.description %>
             <span><%= view.source %></span>
           </div>
