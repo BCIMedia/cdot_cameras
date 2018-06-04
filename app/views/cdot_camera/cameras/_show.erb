@@ -1,7 +1,7 @@
 <div class="row">
   <div class="columns small-12">
     <div class="cdot-container" id="cdot-camera-<%= camera.id %>">
-      <h4 class="subhead"><%= link_to camera.name, "/webcams?cdot_id=#{camera.id}", title: "Click to load custom URL for bookmarking" %></h4>
+      <h4 class="subhead"><%= camera.name %></h4>
       <div class="cdot-cards">
         <% camera.camera_views.each do |view| %>
           <div class="cdot-card">
