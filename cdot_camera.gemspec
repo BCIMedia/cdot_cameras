@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["sbolton@bcimedia.com"]
   s.summary     = %q{CDOT webcams}
   s.description = %q{Just the still ones.}
-  s.homepage    = "https://github.com/BallantineDigitalMedia/cdot_cameras"
+  s.homepage    = "https://github.com/BCIMedia/cdot_cameras"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
