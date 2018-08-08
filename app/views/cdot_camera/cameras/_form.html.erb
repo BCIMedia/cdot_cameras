@@ -1,5 +1,4 @@
-<%= simple_form_for(@camera) do |f| %>
-  <div class="row">
+<%= simple_form_for (@camera), html: { multipart: true, class: "elevated-form row"} do |f| %>
     <% if @camera.errors.any? %>
       <div class="small-12 columns">
         <div id="error_explanation">
@@ -35,16 +34,16 @@
     <div class="small-12 medium-4 columns">
       <%= f.input :status, disabled: true %>
     </div>
-    <div class="small-12 medium-4 columns">
-      <%= f.input  :weather_station, disabled: true %>
+    <div class="small-12 medium-4 columns checkbox-style disabled">
+      <%= f.check_box :weather_station, disabled: true %>
+      <%= f.label :new_tab, "<i class='fa fa-square-o'></i>&nbsp;Weather&nbsp;Station".html_safe %>
     </div>
     <div class="small-12 medium-4 columns">
       <%= f.input :cdot_camera_id, disabled: true %>
     </div>
     <div class="columns small-12">
       <div class="universal-flex-container universal-flex-natural admin-button-container">
-        <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural" %>
+        <%= f.submit "Submit", class: "admin-submit universal-flex-button flex-button-natural form-submit justify-end" %>
       </div>
     </div>
-  </div>
 <% end %>
