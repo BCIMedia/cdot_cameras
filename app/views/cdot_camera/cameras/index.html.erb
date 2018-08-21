@@ -21,14 +21,14 @@
       <tbody>
         <% @cameras.each do |camera| %>
           <tr>
-            <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, camera %></td>
+            <td><%= link_to '<i class="fas fa-eye"></i>'.html_safe, camera %></td>
             <td><%= camera.name %></td>
             <td><%= camera.description %></td>
             <td><%= camera.latitude %>,<%= camera.longitude %></td>
             <td><%= camera.status == 1 ? "Active" : "Off" %></td>
             <td>
-              <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_cdot_camera_camera_path(camera) %>
-              <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, camera, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_cdot_camera_camera_path(camera) %>
+              <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, camera, method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>
         <% end %>
