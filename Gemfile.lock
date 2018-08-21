@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cdot_camera (0.1.5)
+    cdot_camera (0.1.06)
       figaro (= 1.1.1)
       mysql2 (= 0.4.10)
       rails (= 4.2.8)
@@ -72,7 +72,7 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mini_mime (1.0.0)
+    mini_mime (1.0.1)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     mysql2 (0.4.10)
