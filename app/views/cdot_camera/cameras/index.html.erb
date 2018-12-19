@@ -1,9 +1,12 @@
 <div class="row">
-  <div class="columns small-12">
+  <div class="admin-page-title columns small-12">
     <p id="notice"><%= notice %></p>
-
-    <h1>Listing Cameras</h1>
-
+    <h1>CDOT Cameras</h1>
+  </div>
+  <div class="columns small-12 universal-flex-container universal-flex-natural">
+    <%= link_to new_cdot_camera_camera_path, class: "btn-green universal-flex-button flex-button-natural" do %>
+      <i class="fas fa-plus"></i> Create
+    <% end %>
   </div>
   <div class="columns small-12">
     <table>
@@ -34,9 +37,5 @@
         <% end %>
       </tbody>
     </table>
-
-    <br>
-
-    <%= link_to 'New Camera', new_cdot_camera_camera_path %>
   </div>
 </div>
