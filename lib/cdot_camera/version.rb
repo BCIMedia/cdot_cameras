@@ -1,3 +1,3 @@
 module CdotCamera
-  VERSION = '0.1.08'
+  VERSION = '0.1.09'
 end
