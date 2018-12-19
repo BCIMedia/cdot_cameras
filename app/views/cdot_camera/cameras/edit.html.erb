@@ -1,22 +1,18 @@
 <div class="row">
-  <div class="columns small-12">
+  <div class="admin-page-title columns small-12">
     <h1>Editing Camera</h1>
   </div>
-
   <div class="columns small-12">
     <%= render 'form' %>
   </div>
-
   <div class="columns small-12">
-    <div class="universal-flex-container universal-flex-natural admin-button-container">
+    <div class="universal-flex-container universal-flex-natural">
       <%= link_to cdot_camera_cameras_path, class: "admin-button admin-back universal-flex-button flex-button-natural" do %>
         <i class="fas fa-arrow-left"></i> Back
       <% end %>
     </div>
   </div>
-  <br>
   <div class="columns small-12">
   <%= render partial: "cdot_camera/cameras/show", locals: {camera: @camera} %>
   </div>
-
 </div>
