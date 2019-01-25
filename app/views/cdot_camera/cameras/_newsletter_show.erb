@@ -1,0 +1,20 @@
+<div>
+  <%= link_to "https://pinerivertimes.com/webcams?cdot_id=40", style: "color: #000 !important; text-decoration: none !important; cursor: pointer;" do %>
+    <div>
+      <h4><%= camera.name %></h4>
+      <div style="text-align: center;">
+        <% camera.camera_views.each do |view| %>
+          <div style="float: left; max-width: 31%; overflow: hidden; margin: 0 1.1%;">
+            <%= image_tag view.s3_image_fetch_url, style: "width: 100%; max-height: 186px;" %>
+            <% if defined? view.s3_image_updated_at.to_ago %>
+              <div style="color: #999999; font-size: smaller; margin-bottom: 3px;">Updated: <%= view.s3_image_updated_at.ap_style_dates("%A, %B %e, %Y %l:%M %p") %></div>
+            <% end %>
+            <div style="margin-bottom: 3px;"><%= view.description %></div>
+            <div style="color: #999999; font-size: smaller; margin-bottom: 3px;"><%= view.source %></div>
+          </div>
+        <% end %>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+  <% end %>
+</div>
