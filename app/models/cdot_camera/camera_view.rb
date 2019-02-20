@@ -21,6 +21,10 @@ module CdotCamera
       end
       s3_image.url
     end
+
+    def cdot_image_path
+      "http://i.cotrip.org/" + image_location
+    end
   end
 
 end
