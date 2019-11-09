@@ -1,6 +1,6 @@
 module CdotCamera
   class AdminController < ::ApplicationController
-    before_filter :authenticate
+    before_action :authenticate
 
     def authenticate
       authenticate_or_request_with_http_basic("Administration") do |username, password|
